@@ -29,7 +29,7 @@ derby.on('serverQuery', function(store){ // Or racer.on
   // 'collection' - collection name
   // 'queryName'  - name of query
   // 'cb' - function that accept 'params' and 'session'
-  // and return a query-object
+  // and return a query-object or error-string
   
   store.addServerQuery('items', 'main', function(params, session){
     return {type: 'public'};
