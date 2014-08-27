@@ -40,6 +40,12 @@ derby.on('serverQuery', function(store){ // Or racer.on
   });
   
   store.addServerQuery('items', 'byType', function(params, session){
+    
+    // ++++++++++++++++++++++++++++
+    // Should check params here!!!!
+    // it's a security issue
+    // ++++++++++++++++++++++++++++
+    
     return {type: params.type};
   });
 }
