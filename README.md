@@ -56,7 +56,7 @@ Using queries on the client:
   // 'params' - object with query-params
   
   var query = model.serverQuery('items', 'byType', {
-    type: + type
+    type: type
   });
 
   model.subscribe(query, function(){
