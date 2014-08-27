@@ -71,6 +71,37 @@ Using queries on the client:
   });
 ```
 
+What is still allowed:
+```js
+
+// You still can use path-query
+var query = model.server('items', '_page.itemIds');
+
+model.subscribe(query, function(){
+  page.render('home');
+});
+
+// one-item fetch/subscriptions also aren't dennied
+var itemId = params.itemId
+
+var item = model.at('items.'+itemId);
+
+model.subscribe(item,  function(){
+  //...
+});
+
+// Or just
+model.subscribe('items.' + itemId,  function(){
+  //...
+});
+
+// But
+
+model.subscribe('items',  function(err){
+  // Will get Error here!!!!!
+});
+```
+
 ## MIT License
 Copyright (c) 2014 by Artur Zayats
 
