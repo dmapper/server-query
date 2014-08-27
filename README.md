@@ -22,7 +22,8 @@ On the server:
 ```js
 
 // Add server queries  
-racer.on('serverQuery', function(store){
+
+derby.on('serverQuery', function(store){ // Or racer.on
 
   // function addServerQuery accept
   // 'collection' - collection name
