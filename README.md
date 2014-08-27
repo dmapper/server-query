@@ -1,6 +1,6 @@
 ## server-query
 
-Derby/racer server-query plugin. It allows only server-defined queries and denies arbitrary clien queries.
+Derby/racer server-query plugin. It allows only server-defined queries and denies arbitrary client queries.
 
 ### install
 
