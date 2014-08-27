@@ -50,6 +50,11 @@ Using queries on the client:
 ```js
   var type = params.type;
   
+  // function serverQuery accepts 3 arguments:
+  // 'collection' - collection name (should match one from addServerQuery)
+  // 'queryName' - name of query (should match one from addServerQuery)
+  // 'params' - object with query-params
+  
   var query = model.serverQuery('items', 'byType', {
     type: + type
   });
