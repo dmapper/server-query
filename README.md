@@ -15,7 +15,7 @@ npm install server-query
 In our derby-app:
 
 ```js
-derby.use(require('server-query'));
+derby.use(require('server-query'), ['auth', 'users', 'collection_5']);
 ```
 
 On the server:
@@ -48,10 +48,6 @@ derby.on('serverQuery', function(store){ // Or racer.on
     
     return {type: params.type};
   });
-
-  // Used to whitelist a collection globally
-  store.allowCollection('objects');
-  store.allowCollection('objects2');
 }
 
 ```
