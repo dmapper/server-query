@@ -17,7 +17,7 @@ In our derby-app:
 ```js
 derby.use(require('server-query'));
 
-// or if you wish to use usual queries for some colletions
+// or if you wish to use usual queries for some collections
 // you should provide collections whitelist like here
 
 derby.use(require('server-query'), ['auth', 'users', 'topics']);
