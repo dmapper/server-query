@@ -57,7 +57,7 @@ derby.on('serverQuery', function(store){ // Or racer.on
 
 ```
 
-In order to bypass all server-side checks for queries on some collections, just
+In order to bypass all checks for queries on some collections, just
 add those collection to the whitelist. This means that you will be able to user 
 the usual `model.query()` on those collections - both server-side and client-side.
 
