@@ -64,18 +64,16 @@ the usual `model.query()` on those collections - both server-side and client-sid
 If you want to fine-grained access control to collections, please have a look
 at [`share-access`](https://github.com/dmapper/share-access) module.
 
-Using queries on the client:
+Using queries:
 
 ```js
-  var type = params.type;
-  
   // function serverQuery accepts 3 arguments:
   // 'collection' - collection name (should match one from addServerQuery)
   // 'queryName' - name of query (should match one from addServerQuery)
   // 'params' - object with query-params
   
   var query = model.serverQuery('items', 'byType', {
-    type: type
+    type: 'global'
   });
 
   model.subscribe(query, function(){
