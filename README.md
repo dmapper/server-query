@@ -48,9 +48,19 @@ derby.on('serverQuery', function(store){ // Or racer.on
     
     return {type: params.type};
   });
+
+  // Used to whitelist a collection globally
+  store.allowCollection('objects');
 }
 
 ```
+
+The collection whitelisting allows you to bypass all server-side checks
+for queries on a specific collection. This means that you will be able to run
+`model.query()` on those collections on the server as well as on the client.
+
+If you want to fine-grained access control to collections, please have a look
+at [`share-access`](https://github.com/dmapper/share-access) module.
 
 Using queries on the client:
 
