@@ -12,14 +12,14 @@ npm install server-query
 
 ### usage
 
-In our derby-app:
+In our racer-app:
 
 ```js
-derby.use(require('server-query'));
+racer.use(require('server-query'))
 
 // or if you wish to use usual queries you should pass true as the second param
 
-derby.use(require('server-query'), true)
+racer.use(require('server-query'), true)
 ```
 
 On the server:
@@ -27,7 +27,7 @@ On the server:
 
 // Add server queries  
 
-derby.on('serverQuery', function(store){ // Or racer.on
+racer.on('serverQuery', function(backend){ 
 
   // function addServerQuery accept
   // 'collection' - collection name
@@ -35,23 +35,23 @@ derby.on('serverQuery', function(store){ // Or racer.on
   // 'cb' - function that accepts 'params' and 'session'
   // and returns a query-object or error-string
   
-  store.addServerQuery('items', 'main', function(params, session){
-    return {type: 'public'};
-  });
+  backend.addServerQuery('items', 'main', function(params, session){
+    return {type: 'public'}
+  })
   
-  store.addServerQuery('items', 'myItems', function(params, session){
-    return {ownerId: session.userId};
-  });
+  backend.addServerQuery('items', 'myItems', function(params, session){
+    return {ownerId: session.userId}
+  })
   
-  store.addServerQuery('items', 'byType', function(params, session){
+  backend.addServerQuery('items', 'byType', function(params, session){
     
     // ++++++++++++++++++++++++++++
     // Should check params here!!!!
     // it's a security issue
     // ++++++++++++++++++++++++++++
     
-    return {type: params.type};
-  });
+    return {type: params.type}
+  })
 }
 
 ```
@@ -73,42 +73,42 @@ Using queries:
   
   var query = model.serverQuery('items', 'byType', {
     type: 'global'
-  });
+  })
 
   model.subscribe(query, function(){
-    page.render('home');
-  });
+    page.render('home')
+  })
 ```
 
 What is still allowed:
 ```js
 
 // You still can use path-query
-var query = model.server('items', '_page.itemIds');
+var query = model.server('items', '_page.itemIds')
 
 model.subscribe(query, function(){
-  page.render('home');
-});
+  //...
+})
 
 // one-item fetch/subscriptions also aren't dennied
 var itemId = params.itemId
 
-var item = model.at('items.'+itemId);
+var item = model.at('items.'+itemId)
 
 model.subscribe(item,  function(){
   //...
-});
+})
 
 // Or just
 model.subscribe('items.' + itemId,  function(){
   //...
-});
+})
 
 // But
 
 model.subscribe('items',  function(err){
   // Will get Error here!!!!!
-});
+})
 ```
 
 ## MIT License
