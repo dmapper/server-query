@@ -17,10 +17,9 @@ In our derby-app:
 ```js
 derby.use(require('server-query'));
 
-// or if you wish to use usual queries for some collections
-// you should provide collections whitelist like here
+// or if you wish to use usual queries you should pass true as the second param
 
-derby.use(require('server-query'), ['auth', 'users', 'topics']);
+derby.use(require('server-query'), true)
 ```
 
 On the server:
@@ -113,7 +112,7 @@ model.subscribe('items',  function(err){
 ```
 
 ## MIT License
-Copyright (c) 2014 by Artur Zayats
+Copyright (c) 2019 by Artur Zayats
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
