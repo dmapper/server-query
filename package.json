@@ -10,5 +10,8 @@
     "derby"
   ],
   "author": "Artur Zayats <zag2art@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "1.16.4"
+  }
 }
