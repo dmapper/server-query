@@ -1,6 +1,6 @@
 {
   "name": "server-query",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "description": "Derby server-query plugin",
   "main": "lib/index.js",
   "scripts": {
