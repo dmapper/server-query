@@ -12,6 +12,7 @@
   "author": "Artur Zayats <zag2art@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "prettier": "1.16.4"
+    "prettier": "1.16.4",
+    "racer": "*"
   }
 }

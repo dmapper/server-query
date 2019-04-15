@@ -12,47 +12,46 @@ npm install server-query
 
 ### usage
 
-In our racer-app:
+On client:
 
 ```js
-racer.use(require('server-query'))
-
-// or if you wish to use usual queries you should pass true as the second param
-
-racer.use(require('server-query'), true)
+require('server-query')
 ```
 
 On the server:
 ```js
+require('server-query')(backend)
+// or if you wish to use usual queries you should pass true as the second param
+
+require('server-query')(backend, true)
 
 // Add server queries  
 
-racer.on('serverQuery', function(backend){ 
 
-  // function addServerQuery accept
-  // 'collection' - collection name
-  // 'queryName'  - name of query
-  // 'cb' - function that accepts 'params' and 'session'
-  // and returns a query-object or error-string
-  
-  backend.addServerQuery('items', 'main', function(params, session){
-    return {type: 'public'}
-  })
-  
-  backend.addServerQuery('items', 'myItems', function(params, session){
-    return {ownerId: session.userId}
-  })
-  
-  backend.addServerQuery('items', 'byType', function(params, session){
-    
-    // ++++++++++++++++++++++++++++
-    // Should check params here!!!!
-    // it's a security issue
-    // ++++++++++++++++++++++++++++
-    
-    return {type: params.type}
-  })
-}
+// function addServerQuery accept
+// 'collection' - collection name
+// 'queryName'  - name of query
+// 'cb' - function that accepts 'params' and 'session'
+// and returns a query-object or error-string
+
+backend.addServerQuery('items', 'main', function(params, session){
+return {type: 'public'}
+})
+
+backend.addServerQuery('items', 'myItems', function(params, session){
+return {ownerId: session.userId}
+})
+
+backend.addServerQuery('items', 'byType', function(params, session){
+
+// ++++++++++++++++++++++++++++
+// Should check params here!!!!
+// it's a security issue
+// ++++++++++++++++++++++++++++
+
+return {type: params.type}
+})
+
 
 ```
 
