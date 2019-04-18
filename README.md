@@ -34,22 +34,22 @@ require('server-query')(backend, true)
 // 'cb' - function that accepts 'params' and 'session'
 // and returns a query-object or error-string
 
-backend.addServerQuery('items', 'main', function(params, session){
-return {type: 'public'}
+backend.addServerQuery('items', 'main', async function(params, request, agent){
+  return {type: 'public'}
 })
 
-backend.addServerQuery('items', 'myItems', function(params, session){
+backend.addServerQuery('items', 'myItems', async function(params, request, agent){
 return {ownerId: session.userId}
 })
 
-backend.addServerQuery('items', 'byType', function(params, session){
+backend.addServerQuery('items', 'byType', async function(params, request, agent){
 
-// ++++++++++++++++++++++++++++
-// Should check params here!!!!
-// it's a security issue
-// ++++++++++++++++++++++++++++
+  // ++++++++++++++++++++++++++++
+  // Should check params here!!!!
+  // it's a security issue
+  // ++++++++++++++++++++++++++++
 
-return {type: params.type}
+  return {type: params.type}
 })
 
 
